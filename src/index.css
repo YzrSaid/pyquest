@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ─── Tailwind theme: maps CSS vars → utility classes ─────────────────────── */
+@theme inline {
+  /* shadcn semantic tokens */
+  --color-background:         var(--background);
+  --color-foreground:         var(--foreground);
+  --color-card:               var(--card);
+  --color-card-foreground:    var(--card-foreground);
+  --color-popover:            var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary:            var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary:          var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted:              var(--muted);
+  --color-muted-foreground:   var(--muted-foreground);
+  --color-accent:             var(--accent);
+  --color-accent-foreground:  var(--accent-foreground);
+  --color-destructive:        var(--destructive);
+  --color-border:             var(--border);
+  --color-input:              var(--input);
+  --color-ring:               var(--ring);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* ── PyQuest brand colors ── */
+  --color-forest-green: #2D5A1B;
+  --color-deep-forest:  #1A3A1A;
+  --color-pixel-black:  #0D1F0D;
+  --color-night-green:  #0A120A;
+  --color-lime-flash:   #7ABF3A;
+  --color-moss-card:    #1E3B14;
+  --color-off-white:    #F0F0E8;
+
+  /* ── PyQuest fonts ── */
+  --font-pixel:    'Press Start 2P', cursive;
+  --font-terminal: 'VT323', monospace;
+}
+
+/* ─── CSS custom properties (game-dark theme as default) ───────────────────── */
+:root {
+  --radius: 0rem; /* pixel-perfect: no rounded corners */
+
+  --background:          #0A120A;
+  --foreground:          #F0F0E8;
+  --card:                #1E3B14;
+  --card-foreground:     #F0F0E8;
+  --popover:             #1A3A1A;
+  --popover-foreground:  #F0F0E8;
+  --primary:             #2D5A1B;
+  --primary-foreground:  #F0F0E8;
+  --secondary:           #1A3A1A;
+  --secondary-foreground:#F0F0E8;
+  --muted:               #1A3A1A;
+  --muted-foreground:    #9db898;
+  --accent:              #7ABF3A;
+  --accent-foreground:   #0D1F0D;
+  --destructive:         #c0392b;
+  --border:              #2D5A1B;
+  --input:               #1A3A1A;
+  --ring:                #7ABF3A;
+}
+
+/* ─── Game animations ──────────────────────────────────────────────────────── */
+@keyframes cloud-sweep {
+  0%   { transform: translateX(105%);  }
+  45%  { transform: translateX(0%);    }
+  55%  { transform: translateX(0%);    }
+  100% { transform: translateX(-105%); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ─── Base reset ───────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border-color: var(--border);
+  outline-color: var(--ring);
+}
+
+html {
+  image-rendering: pixelated;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-terminal);
+  font-size: 18px;
+  line-height: 1.5;
+  -webkit-font-smoothing: none; /* keep pixel crispness */
+  -moz-osx-font-smoothing: unset;
+}
+
+#root {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Retro pixel scrollbar — overworld map ────────────────────────────────── */
+.map-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.map-scroll::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.25);
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.map-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.55);
+  border: 2px solid transparent;
+  background-clip: content-box;
+  image-rendering: pixelated;
+}
+
+.map-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.9);
+  background-clip: content-box;
+}
+
+.map-scroll::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* ─── Retro pixel scrollbar — chatbot messages ─────────────────────────────── */
+.chatbot-scroll::-webkit-scrollbar        { width: 6px; }
+.chatbot-scroll::-webkit-scrollbar-track  { background: #111; }
+.chatbot-scroll::-webkit-scrollbar-thumb  { background: rgba(255,255,255,0.2); }
+.chatbot-scroll::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.5); }
+.chatbot-scroll::-webkit-scrollbar-button { display: none; }
