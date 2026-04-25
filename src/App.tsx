@@ -180,7 +180,7 @@ function MapRoute({ goTo }: { goTo: (path: string) => void }) {
     <div
       className="flex flex-col h-svh overflow-hidden"
       style={{
-        backgroundImage: 'url("/background/background_7.png")',
+        backgroundImage: 'url("/background/background_7.webp")',
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}

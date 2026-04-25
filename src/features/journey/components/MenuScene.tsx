@@ -224,7 +224,7 @@ function BusTour() {
   return (
     <img
       ref={busRef}
-      src="/sprites/tileset2/bus_side_view.png"
+      src="/sprites/tileset2/bus_side_view.webp"
       alt=""
       style={{
         position: "fixed",
@@ -259,7 +259,7 @@ export function MenuScene({ onStart }: Props) {
         height: "100svh",
         overflow: "hidden",
         backgroundImage:
-          'linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url("/background/background_7.png")',
+          'linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url("/background/background_7.webp")',
         backgroundSize: "cover",
         backgroundPosition: "center",
         display: "flex",
@@ -289,7 +289,7 @@ export function MenuScene({ onStart }: Props) {
         >
           {!isMobile && (
             <img
-              src="/sprites/banner_ccs.png"
+              src="/sprites/banner_ccs.webp"
               style={{
                 width: "auto",
                 height: "clamp(180px, 24vw, 300px)",
@@ -337,7 +337,7 @@ export function MenuScene({ onStart }: Props) {
           </div>
           {!isMobile && (
             <img
-              src="/sprites/banner_wmsu.png"
+              src="/sprites/banner_wmsu.webp"
               style={{
                 width: "auto",
                 height: "clamp(180px, 24vw, 300px)",
@@ -358,7 +358,7 @@ export function MenuScene({ onStart }: Props) {
             }}
           >
             <img
-              src="/sprites/banner_ccs.png"
+              src="/sprites/banner_ccs.webp"
               style={{
                 width: "auto",
                 height: "clamp(100px, 24vw, 130px)",
@@ -367,7 +367,7 @@ export function MenuScene({ onStart }: Props) {
               alt="CCS"
             />
             <img
-              src="/sprites/banner_wmsu.png"
+              src="/sprites/banner_wmsu.webp"
               style={{
                 width: "auto",
                 height: "clamp(105px, 24vw, 130px)",
@@ -393,7 +393,7 @@ export function MenuScene({ onStart }: Props) {
       </div>
 
       <img
-        src="/sprites/ride_plane.png"
+        src="/sprites/ride_plane.webp"
         alt=""
         style={{
           position: "absolute",

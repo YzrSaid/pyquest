@@ -1,3 +1,8 @@
+export interface ActivityPhoto {
+  src: string
+  caption: string
+}
+
 export interface Activity {
   id: string
   order: number
@@ -8,6 +13,12 @@ export interface Activity {
   description: string
   highlights: string[]
   images: string[]
+  // Rich diary content — filled progressively per banner
+  story?: string
+  feelings?: string
+  photos?: ActivityPhoto[]
+  realizations?: string[]
+  keywords?: string[]
 }
 
 export interface Day {
@@ -42,6 +53,22 @@ export const days: Day[] = [
           'Zamboanga City — the City of Flowers, gateway to adventure',
         ],
         images: [],
+        story:
+          'I woke up at 3:00 in the morning since our flight was scheduled for 6:00 AM. It was early, but I couldn\'t really sleep anyway — I was just too excited.\n\nMy best friend Fhadia was also joining the tour, and since we\'re basically neighbors, her parents were kind enough to drive me to the airport. That early morning ride with them was such a relief — and such a wholesome way to start the day.\n\nIn the days leading up to this, I had already packed my luggage about a week before the flight. I wanted to make sure everything was ready and nothing would be left behind. I also had my phone fixed beforehand — the last thing I wanted was a broken phone during the trip! On top of that, I made a list of all the people I planned to buy pasalubong for when I got back home.',
+        feelings:
+          'Honestly? I was a bundle of nerves — but more than anything, I was beyond excited. This was my very first time going outside of Zamboanga City, and my very first time riding an airplane. Everything felt unreal.',
+        photos: [
+          {
+            src: '/photos/day00/luggage.jpg',
+            caption:
+              'Inside my luggage — I sent this photo to my friends to show how I packed everything and what I was bringing on the trip.',
+          },
+        ],
+        realizations: [
+          'I feel so blessed and grateful to my two sisters who paid for this tour and my plane ticket. Without them, this once-in-a-lifetime experience would not have been possible.',
+          'I am deeply thankful to my mother, who guided me on what to do, what to expect, and what to bring for my flight. Her advice gave me so much confidence heading into this brand new experience.',
+        ],
+        keywords: ['First Flight', '3AM Wake Up', 'Zamboanga City', 'Departure Day', 'Pasalubong List', 'Travel Prep'],
       },
       {
         id: 'zamboanga-airport',

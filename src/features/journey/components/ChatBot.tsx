@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { playClick } from "@/lib/audio";
 
-const PROFILE_ICON = "/sprites/profile_icon.png";
+const PROFILE_ICON = "/sprites/profile_icon.webp";
 
 const RL_KEY = "chatbot_rl";
 const RL_MAX = 10;
@@ -167,7 +167,7 @@ export function ChatBot() {
         }}
       >
         <img
-          src="/sprites/bot_button.png"
+          src="/sprites/bot_button.webp"
           alt="Chat"
           style={{ width: "100%", height: "100%", imageRendering: "pixelated" }}
         />
