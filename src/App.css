@@ -1,1 +1,5 @@
 /* App-level styles — global overrides go in index.css */
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

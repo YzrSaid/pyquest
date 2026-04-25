@@ -240,7 +240,7 @@ function AppInner() {
       playDayMusic("/music/day00_bg.mp3");
     } else {
       pauseBgMusic();
-      stopDayMusic();
+      playDayMusic("/music/allday_bg.mp3");
     }
   }, [location.pathname]);
 

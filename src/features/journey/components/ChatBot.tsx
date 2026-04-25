@@ -3,6 +3,30 @@ import { playClick } from "@/lib/audio";
 
 const PROFILE_ICON = "/sprites/profile_icon.png";
 
+const RL_KEY = "chatbot_rl";
+const RL_MAX = 10;
+const RL_WINDOW = 60 * 60 * 1000;
+
+function getRateData(): { count: number; windowStart: number } {
+  try {
+    const raw = localStorage.getItem(RL_KEY);
+    if (!raw) return { count: 0, windowStart: Date.now() };
+    const data = JSON.parse(raw) as { count: number; windowStart: number };
+    if (Date.now() - data.windowStart > RL_WINDOW)
+      return { count: 0, windowStart: Date.now() };
+    return data;
+  } catch {
+    return { count: 0, windowStart: Date.now() };
+  }
+}
+
+function consumeRate(): boolean {
+  const data = getRateData();
+  if (data.count >= RL_MAX) return false;
+  localStorage.setItem(RL_KEY, JSON.stringify({ ...data, count: data.count + 1 }));
+  return true;
+}
+
 interface Message {
   role: "user" | "bot";
   text: string;
@@ -60,6 +84,16 @@ export function ChatBot() {
 
   async function sendMessage() {
     if (!input.trim() || isLoading) return;
+
+    if (!consumeRate()) {
+      const { windowStart } = getRateData();
+      const minLeft = Math.ceil((RL_WINDOW - (Date.now() - windowStart)) / 60000);
+      setMessages((prev) => [
+        ...prev,
+        { role: "bot", text: `Message limit reached (${RL_MAX}/hr). Try again in ${minLeft} min.` },
+      ]);
+      return;
+    }
 
     const userMsg: Message = { role: "user", text: input };
     setMessages((prev) => [...prev, userMsg]);

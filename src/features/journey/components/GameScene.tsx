@@ -433,6 +433,34 @@ export function GameScene({ day, onExit, onNextDay, onPrevDay }: Props) {
   const isDay6 = day.id === 6;
   const hasBus = !isDay0;
 
+  const [assetsLoaded, setAssetsLoaded] = useState(false);
+
+  useEffect(() => {
+    const bgSrc = isDay2 ? BG_DAY2 : isDay5 ? BG_DAY5 : isDay6 ? BG_DAY6 : BG_DAY0;
+    const srcs = [
+      bgSrc,
+      isDay0 ? IDLE_SHEET_0 : IDLE_SHEET,
+      isDay0 ? WALK_SHEET_0 : WALK_SHEET,
+      GRASS_TILE, ROAD_TILE, STONE_TILE, SAND_TILE,
+      ...CLOUD_SRCS,
+    ];
+
+    const timer = setTimeout(() => setAssetsLoaded(true), 5000);
+
+    Promise.all(
+      srcs.map((src) => {
+        const img = new Image();
+        img.src = src;
+        return img.decode().catch(() => {});
+      }),
+    ).then(() => {
+      clearTimeout(timer);
+      setAssetsLoaded(true);
+    });
+
+    return () => clearTimeout(timer);
+  }, [day.id]); // eslint-disable-line react-hooks/exhaustive-deps
+
   // Reset all bus + player state whenever the day changes
   useEffect(() => {
     busXRef.current = -BUS_W;
@@ -3359,6 +3387,45 @@ export function GameScene({ day, onExit, onNextDay, onPrevDay }: Props) {
             onJump={doJump}
             onInteract={handleInteract}
           />
+        </div>
+      )}
+
+      {!assetsLoaded && (
+        <div
+          style={{
+            position: "fixed",
+            inset: 0,
+            background: "rgba(0,0,0,0.86)",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 24,
+            zIndex: 90,
+            pointerEvents: "none",
+          }}
+        >
+          <div
+            style={{
+              width: 36,
+              height: 36,
+              border: "3px solid rgba(255,255,255,0.15)",
+              borderTopColor: "#fff",
+              borderRadius: "50%",
+              animation: "spin 0.8s linear infinite",
+            }}
+          />
+          <p
+            style={{
+              fontFamily: "'Press Start 2P', cursive",
+              fontSize: 7,
+              color: "rgba(255,255,255,0.6)",
+              letterSpacing: 2,
+              margin: 0,
+            }}
+          >
+            LOADING GAME ASSETS...
+          </p>
         </div>
       )}
     </>
