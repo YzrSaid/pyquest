@@ -1,6 +1,59 @@
 import { useState, useRef, useEffect } from "react";
+import {
+  FaFacebook,
+  FaTiktok,
+  FaBriefcase,
+  FaLinkedinIn,
+  FaGithub,
+} from "react-icons/fa";
 import { ChatBot } from "./ChatBot";
 import { playClick } from "@/lib/audio";
+
+function SocialLink({
+  icon,
+  label,
+  href,
+  hoverColor,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  href: string;
+  hoverColor: string;
+}) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        flex: 1,
+        minWidth: 0,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 7,
+        padding: "12px 4px",
+        border: `2px solid ${hovered ? hoverColor : "rgba(255,255,255,0.15)"}`,
+        background: hovered ? `${hoverColor}18` : "rgba(0,0,0,0.3)",
+        cursor: "pointer",
+        textDecoration: "none",
+        transition: "border-color 0.15s, background 0.15s, transform 0.15s, box-shadow 0.15s",
+        transform: hovered ? "translateY(-4px)" : "translateY(0)",
+        boxShadow: hovered ? `3px 3px 0 ${hoverColor}55` : "3px 3px 0 rgba(0,0,0,0.4)",
+      }}
+    >
+      <div style={{ color: hovered ? hoverColor : "rgba(255,255,255,0.8)", fontSize: 22, lineHeight: 1, transition: "color 0.15s" }}>
+        {icon}
+      </div>
+      <div style={{ fontFamily: "'Press Start 2P', cursive", fontSize: 5, color: hovered ? hoverColor : "#888", letterSpacing: 1, transition: "color 0.15s", textAlign: "center", wordBreak: "break-word" }}>
+        {label}
+      </div>
+    </a>
+  );
+}
 
 interface Props {
   onStart: () => void;
@@ -71,10 +124,14 @@ function Modal({
   title,
   onClose,
   children,
+  textAlign = "left",
+  banner,
 }: {
   title: string;
   onClose: () => void;
   children: React.ReactNode;
+  textAlign?: React.CSSProperties["textAlign"];
+  banner?: string;
 }) {
   return (
     <div
@@ -95,8 +152,8 @@ function Modal({
           background: "#111",
           border: "2px solid rgba(255,255,255,0.3)",
           maxWidth: 480,
-          width: "90%",
-          maxHeight: "80svh",
+          width: "92%",
+          maxHeight: "82svh",
           display: "flex",
           flexDirection: "column",
         }}
@@ -104,11 +161,12 @@ function Modal({
         <h2
           style={{
             fontFamily: "'Press Start 2P', cursive",
-            fontSize: 13,
+            fontSize: "clamp(13px, 3.5vw, 20px)",
             color: "#fff",
             letterSpacing: 2,
             flexShrink: 0,
-            padding: "32px 40px 20px",
+            textAlign: "center",
+            padding: "clamp(16px, 4vw, 32px) clamp(20px, 5vw, 40px) clamp(12px, 3vw, 20px)",
             borderBottom: "1px solid rgba(255,255,255,0.1)",
           }}
         >
@@ -118,19 +176,31 @@ function Modal({
           className="chatbot-scroll"
           style={{
             fontFamily: "'VT323', monospace",
-            fontSize: 24,
+            fontSize: "clamp(17px, 4.5vw, 24px)",
             color: "rgba(255,255,255,0.8)",
             lineHeight: 1.6,
             overflowY: "auto",
-            padding: "20px 40px",
             flex: 1,
           }}
         >
-          {children}
+          <div style={{ padding: "clamp(14px, 3vw, 20px) clamp(20px, 5vw, 40px)", textAlign }}>
+            {children}
+          </div>
+          {banner && (
+            <img
+              src={banner}
+              alt=""
+              style={{
+                display: "block",
+                width: "100%",
+                imageRendering: "pixelated",
+              }}
+            />
+          )}
         </div>
         <div
           style={{
-            padding: "16px 40px 24px",
+            padding: "clamp(12px, 3vw, 16px) clamp(20px, 5vw, 40px) clamp(16px, 4vw, 24px)",
             flexShrink: 0,
             textAlign: "center",
             borderTop: "1px solid rgba(255,255,255,0.1)",
@@ -425,9 +495,9 @@ export function MenuScene({ onStart }: Props) {
       <ChatBot />
 
       {aboutOpen && (
-        <Modal title="ABOUT" onClose={() => setAboutOpen(false)}>
+        <Modal title="ABOUT" textAlign="justify" onClose={() => setAboutOpen(false)}>
           <p>
-            PyQuest is an interactive retro-style blog documenting the
+            PyQuest is an interactive retro-style blog that documents the
             educational tour of IT students from the{" "}
             <span style={{ color: "#fff" }}>
               College of Computing Studies (CCS)
@@ -439,20 +509,22 @@ export function MenuScene({ onStart }: Props) {
             , Zamboanga City, Philippines.
           </p>
           <p style={{ marginTop: 12 }}>
-            The tour spanned <span style={{ color: "#fff" }}>7 days</span>{" "}
-            across <span style={{ color: "#fff" }}>Manila, Tagaytay,</span> and{" "}
-            <span style={{ color: "#fff" }}>Baguio City</span> — giving students
-            real-world exposure to top IT companies, government institutions,
+            The tour covered{" "}
+            <span style={{ color: "#fff" }}>7 days</span> across{" "}
+            <span style={{ color: "#fff" }}>Manila, Tagaytay,</span> and{" "}
+            <span style={{ color: "#fff" }}>Baguio City</span>, giving students
+            hands-on exposure to leading IT companies, government institutions,
             and creative industry professionals.
           </p>
           <p style={{ marginTop: 12 }}>
-            The aim was to bridge the gap between academic learning and industry
-            practice — letting students see, firsthand, how technology is built
-            and applied in professional environments.
+            The goal was to connect classroom learning with real industry
+            practice by letting students experience firsthand how technology
+            is built and applied in professional settings.
           </p>
           <p style={{ marginTop: 12 }}>
-            This is an <span style={{ color: "#fff" }}>interactive blog</span> —
-            not just a writeup. Explore each day like a game, walk through the
+            This is an{" "}
+            <span style={{ color: "#fff" }}>interactive blog</span>, not
+            just a writeup. Explore each day like a game, walk through the
             world, and relive every moment of the journey.
           </p>
           <p style={{ marginTop: 12 }}>
@@ -464,87 +536,50 @@ export function MenuScene({ onStart }: Props) {
         </Modal>
       )}
       {creditsOpen && (
-        <Modal title="CREDITS" onClose={() => setCreditsOpen(false)}>
-          {/* 1. Core Development */}
-          <p style={{ color: "#aaa", fontSize: "0.9em" }}>
-            Game Design &amp; Development
-          </p>
-          <p style={{ color: "#fff", fontWeight: "bold" }}>
-            Mohammad Aldrin Said
-          </p>
+        <Modal title="CREDITS" textAlign="center" banner="/sprites/end_credit_banner.png" onClose={() => setCreditsOpen(false)}>
+          <p style={{ color: "#aaa", fontSize: "0.85em" }}>Game Design &amp; Development</p>
+          <p style={{ color: "#fff" }}>Mohammad Aldrin Said</p>
 
-          {/* 2. Key Assets */}
-          <p style={{ color: "#aaa", fontSize: "0.9em", marginTop: 16 }}>
-            Music &amp; Sound Effects
-          </p>
+          <p style={{ color: "#aaa", fontSize: "0.85em", marginTop: 14 }}>Music &amp; Sound Effects</p>
           <p style={{ color: "#fff" }}>Krzysztof Szymanski — Pixabay</p>
           <p style={{ color: "#fff" }}>AShamaluevMusic — YouTube</p>
           <p style={{ color: "#fff" }}>Sound Bytes — YouTube</p>
           <p style={{ color: "#fff" }}>Royalty Free Sounds — YouTube</p>
+          <p style={{ color: "#fff" }}>Bink's Sake — One Piece (Toei Animation)</p>
 
-          {/* 3. Academic Affiliation */}
-          <p style={{ color: "#aaa", fontSize: "0.9em", marginTop: 16 }}>
-            Institution
-          </p>
+          <p style={{ color: "#aaa", fontSize: "0.85em", marginTop: 14 }}>Institution</p>
           <p style={{ color: "#fff" }}>Western Mindanao State University</p>
           <p style={{ color: "#fff" }}>College of Computing Studies</p>
 
-          {/* 4. Mentors */}
-          <p style={{ color: "#aaa", fontSize: "0.9em", marginTop: 16 }}>
-            Advisers &amp; Teachers
-          </p>
+          <p style={{ color: "#aaa", fontSize: "0.85em", marginTop: 14 }}>Advisers &amp; Teachers</p>
           <p style={{ color: "#fff" }}>Mr. Jason Catadman</p>
           <p style={{ color: "#fff" }}>Mr. Jaydee Ballaho</p>
           <p style={{ color: "#fff" }}>Mr. Odon Maravillas Jr.</p>
           <p style={{ color: "#fff" }}>Mr. Edwin Arip</p>
 
-          {/* 5. Tour Organizers */}
-          <p style={{ color: "#aaa", fontSize: "0.9em", marginTop: 16 }}>
-            Tour Organizer
-          </p>
+          <p style={{ color: "#aaa", fontSize: "0.85em", marginTop: 14 }}>Tour Organizer</p>
           <p style={{ color: "#fff" }}>DJM Travel and Tours Services</p>
-          <p style={{ color: "#fff" }}>
-            Tour Guides: Kuya Jero &amp; Ate Veron
-          </p>
+          <p style={{ color: "#fff" }}>Tour Guides: Kuya Jero &amp; Ate Veron</p>
           <p style={{ color: "#fff" }}>And to all the staff of DJM</p>
 
-          {/* 6. Special Thanks */}
-          <p style={{ color: "#aaa", fontSize: "0.9em", marginTop: 16 }}>
-            Special Thanks to the Companies Visited
-          </p>
-          <p style={{ color: "#fff" }}>MicroSourcing</p>
-          <p style={{ color: "#fff" }}>OpenText</p>
-          <p style={{ color: "#fff" }}> Top Peg Animation</p>
-          <p style={{ color: "#fff" }}>HyTech Power Inc.</p>
-          <p style={{ color: "#fff" }}>Teleperformance</p>
+          <p style={{ color: "#aaa", fontSize: "0.85em", marginTop: 14 }}>Companies Visited</p>
+          <p style={{ color: "#fff" }}>MicroSourcing · OpenText · Top Peg Animation · HyTech Power Inc. · Teleperformance</p>
 
-          {/* 7. Footer Info */}
-          <div
-            style={{
-              marginTop: 30,
-              borderTop: "1px solid #444",
-              paddingTop: 15,
-              textAlign: "center",
-            }}
-          >
-            <p
-              style={{
-                color: "#ffffffff",
-                fontWeight: "bold",
-                letterSpacing: "1px",
-              }}
-            >
-              PYQUEST
-            </p>
-            <p style={{ color: "#aaa", fontSize: "0.8em" }}>
-              DJM Educational Tour 2026
-            </p>
-            <p style={{ color: "#aaa", fontSize: "0.8em" }}>
-              Zamboanga City, Philippines
-            </p>
-            <p style={{ color: "#888", fontSize: "0.75em" }}>
-              &copy; 2026 All Rights Reserved.
-            </p>
+          <div style={{ marginTop: 20, borderTop: "1px solid #333", paddingTop: 16 }}>
+            <p style={{ color: "#aaa", fontSize: "0.85em", marginBottom: 12 }}>Connect with the Developer</p>
+            <div style={{ display: "flex", flexWrap: "nowrap", gap: 6, width: "100%" }}>
+              <SocialLink icon={<FaFacebook />}  label="FACEBOOK"  href="https://www.facebook.com/iAmMA.Yazar/"                              hoverColor="#1877f2" />
+              <SocialLink icon={<FaTiktok />}    label="TIKTOK"    href="https://www.tiktok.com/@yzrrr?lang=en-GB"                          hoverColor="#ff2d55" />
+              <SocialLink icon={<FaBriefcase />} label="PORTFOLIO" href="https://ma-said-portfolio.vercel.app/"                              hoverColor="#f5c842" />
+              <SocialLink icon={<FaLinkedinIn />}label="LINKEDIN"  href="https://www.linkedin.com/in/mohammad-aldrin-said-308147386/"        hoverColor="#0a66c2" />
+              <SocialLink icon={<FaGithub />}    label="GITHUB"    href="https://github.com/YzrSaid/"                                        hoverColor="#e6edf3" />
+            </div>
+          </div>
+
+          <div style={{ marginTop: 16, borderTop: "1px solid #333", paddingTop: 14, textAlign: "center" }}>
+            <p style={{ color: "#fff", letterSpacing: 2 }}>PYQUEST</p>
+            <p style={{ color: "#888", fontSize: "0.8em" }}>DJM Educational Tour 2026 · Zamboanga City, Philippines</p>
+            <p style={{ color: "#555", fontSize: "0.75em" }}>&copy; 2026 All Rights Reserved.</p>
           </div>
         </Modal>
       )}
