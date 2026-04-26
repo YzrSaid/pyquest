@@ -6,7 +6,13 @@ interface Props {
   onClose: () => void;
 }
 
-export function BusMenu({ dayId, onToMap, onPrevDay, onNextDay, onClose }: Props) {
+export function BusMenu({
+  dayId,
+  onToMap,
+  onPrevDay,
+  onNextDay,
+  onClose,
+}: Props) {
   return (
     <div
       style={{
@@ -69,7 +75,7 @@ export function BusMenu({ dayId, onToMap, onPrevDay, onNextDay, onClose }: Props
             MAP
           </button>
 
-          {/* Prev + Next day on one row */}
+          {/* Prev + Next/Finish row */}
           <div style={{ display: "flex", gap: 10 }}>
             {dayId > 1 && (
               <button
@@ -84,27 +90,50 @@ export function BusMenu({ dayId, onToMap, onPrevDay, onNextDay, onClose }: Props
                   cursor: "pointer",
                   borderRadius: 3,
                   flex: 1,
+                  flexBasis: 0,
+                  whiteSpace: "nowrap",
                 }}
               >
                 &lt; PREV DAY
               </button>
             )}
-            <button
-              onClick={onNextDay}
-              style={{
-                fontFamily: "'Press Start 2P', cursive",
-                fontSize: 7,
-                color: "#0b390b",
-                background: "#fffdd0",
-                border: "2px solid #0b390b",
-                padding: "11px 16px",
-                cursor: "pointer",
-                borderRadius: 3,
-                flex: 1,
-              }}
-            >
-              NEXT DAY &gt;
-            </button>
+            {dayId === 6 ? (
+              <button
+                onClick={onNextDay}
+                style={{
+                  fontFamily: "'Press Start 2P', cursive",
+                  fontSize: 7,
+                  color: "#2a1a00",
+                  background: "#ffd700",
+                  border: "2px solid #fffdd0",
+                  padding: "11px 16px",
+                  cursor: "pointer",
+                  borderRadius: 3,
+                  flex: 1,
+                  flexBasis: 0,
+                  whiteSpace: "nowrap",
+                }}
+              >
+                FINISH TOUR &gt;
+              </button>
+            ) : (
+              <button
+                onClick={onNextDay}
+                style={{
+                  fontFamily: "'Press Start 2P', cursive",
+                  fontSize: 7,
+                  color: "#0b390b",
+                  background: "#fffdd0",
+                  border: "2px solid #0b390b",
+                  padding: "11px 16px",
+                  cursor: "pointer",
+                  borderRadius: 3,
+                  flex: 1,
+                }}
+              >
+                NEXT DAY &gt;
+              </button>
+            )}
           </div>
 
           {/* Close — dismisses menu, stay in scene */}

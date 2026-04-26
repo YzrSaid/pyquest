@@ -86,7 +86,7 @@ export function Day6Scenery({ banners, worldWidth }: Props) {
         style={{
           position: "absolute",
           left: b0 - STATUE_W_0 / 2,
-          bottom: GROUND_H - 6,
+          bottom: GROUND_H - 9,
           width: STATUE_W_0,
           imageRendering: "pixelated",
           pointerEvents: "none",

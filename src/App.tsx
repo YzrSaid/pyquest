@@ -21,6 +21,7 @@ import {
   GameScene,
   CloudTransition,
   MenuScene,
+  EndCredits,
 } from "@/features/journey";
 import type { Day } from "@/features/journey";
 
@@ -225,7 +226,16 @@ function AppInner() {
   function handleMusicChoice(enable: boolean) {
     musicEnabledRef.current = enable;
     setShowMusicModal(false);
-    if (enable) playBgMusic();
+    if (!enable) return;
+    if (location.pathname === "/credits") {
+      playDayMusic("/music/bink_sake.mp3", 1, 1);
+    } else if (location.pathname === "/day/0") {
+      playDayMusic("/music/day00_bg.mp3");
+    } else if (location.pathname.startsWith("/day/")) {
+      playDayMusic("/music/allday_bg.mp3");
+    } else {
+      playBgMusic();
+    }
   }
 
   useEffect(() => {
@@ -235,6 +245,9 @@ function AppInner() {
     if (onMenuOrMap) {
       stopDayMusic();
       playBgMusic();
+    } else if (location.pathname === "/credits") {
+      pauseBgMusic();
+      playDayMusic("/music/bink_sake.mp3", 1, 1);
     } else if (location.pathname === "/day/0") {
       pauseBgMusic();
       playDayMusic("/music/day00_bg.mp3");
@@ -266,6 +279,10 @@ function AppInner() {
         <Route path="/" element={<MenuScene onStart={() => goTo("/map")} />} />
         <Route path="/map" element={<MapRoute goTo={goTo} />} />
         <Route path="/day/:id" element={<DayRoute goTo={goTo} />} />
+        <Route
+          path="/credits"
+          element={<EndCredits onMainMenu={() => goTo("/")} />}
+        />
       </Routes>
 
       <CloudTransition
@@ -292,6 +309,10 @@ function DayRoute({ goTo }: { goTo: (path: string) => void }) {
   }
 
   function nextDay() {
+    if (dayId === 6) {
+      goTo("/credits");
+      return;
+    }
     const next = days.find((d: Day) => d.id === dayId + 1);
     goTo(next ? `/day/${next.id}` : "/map");
   }

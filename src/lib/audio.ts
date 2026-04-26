@@ -3,6 +3,7 @@ let clickAudio: HTMLAudioElement | null = null;
 let jumpAudio: HTMLAudioElement | null = null;
 let dayMusic: HTMLAudioElement | null = null;
 let dayMusicSrc = "";
+let dayAudioCtx: AudioContext | null = null;
 
 let bgShouldPlay = false;
 let dayShouldPlay = false;
@@ -33,14 +34,28 @@ export function pauseBgMusic() {
   bgMusic?.pause();
 }
 
-export function playDayMusic(src: string) {
+export function playDayMusic(src: string, volume = 0.35, gain = 1) {
   dayShouldPlay = true;
   if (!dayMusic || dayMusicSrc !== src) {
     dayMusic?.pause();
+    dayAudioCtx?.close();
+    dayAudioCtx = null;
+
     dayMusic = new Audio(src);
     dayMusic.loop = true;
-    dayMusic.volume = 0.35;
     dayMusicSrc = src;
+
+    if (gain > 1) {
+      dayAudioCtx = new AudioContext();
+      const source = dayAudioCtx.createMediaElementSource(dayMusic);
+      const gainNode = dayAudioCtx.createGain();
+      gainNode.gain.value = gain;
+      source.connect(gainNode);
+      gainNode.connect(dayAudioCtx.destination);
+      dayMusic.volume = 1;
+    } else {
+      dayMusic.volume = volume;
+    }
   }
   if (!dayMusic.paused) return;
   dayMusic.play().catch(() => {});
@@ -54,6 +69,8 @@ export function stopDayMusic() {
     dayMusic = null;
     dayMusicSrc = "";
   }
+  dayAudioCtx?.close();
+  dayAudioCtx = null;
 }
 
 // Call from any direct click/tap handler so the browser grants the audio
@@ -67,6 +84,10 @@ export function playClick() {
   clickAudio.play().catch(() => {});
 
   if (bgShouldPlay) tryPlay(ensureBg());
+  if (dayShouldPlay && dayMusic) {
+    if (dayAudioCtx?.state === "suspended") dayAudioCtx.resume();
+    tryPlay(dayMusic);
+  }
 }
 
 export function playJump() {
@@ -92,7 +113,10 @@ export function playAirplaneSfx() {
 (function installUnlock() {
   const unlock = () => {
     if (bgShouldPlay) tryPlay(ensureBg());
-    if (dayShouldPlay && dayMusic) tryPlay(dayMusic);
+    if (dayShouldPlay && dayMusic) {
+      if (dayAudioCtx?.state === "suspended") dayAudioCtx.resume();
+      tryPlay(dayMusic);
+    }
     ["pointerdown", "keydown", "touchstart"].forEach((e) =>
       window.removeEventListener(e, unlock),
     );

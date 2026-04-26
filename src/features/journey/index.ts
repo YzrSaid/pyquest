@@ -8,6 +8,7 @@ export { ChatBot }          from './components/ChatBot'
 export { OverworldMap }     from './components/OverworldMap'
 export { GameScene }        from './components/GameScene'
 export { CloudTransition }  from './components/CloudTransition'
+export { EndCredits }       from './components/EndCredits'
 // export { DayCard } from './components/DayCard'
 
 // Hooks (add exports here as they are created)
