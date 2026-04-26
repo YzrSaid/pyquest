@@ -197,7 +197,7 @@ function PhotoGroup({ srcs, caption }: { srcs: string[]; caption: string }) {
         close={() => setLightbox(false)}
         index={activeIdx}
         slides={slides}
-        on={{ view: (index: number) => setActiveIdx(index) }}
+        on={{ view: ({ index }) => setActiveIdx(index) }}
       />
     </div>
   )
