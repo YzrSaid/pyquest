@@ -16,7 +16,7 @@ export default defineConfig({
       workbox: {
         // Pre-cache all JS/CSS/HTML and every image in the public folder
         globPatterns: ['**/*.{js,css,html,ico,svg,webp,png,jpeg,jpg}'],
-        maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
+        maximumFileSizeToCacheInBytes: 2 * 1024 * 1024,
         runtimeCaching: [
           {
             // Cache audio on first play; serve from cache on every subsequent play
