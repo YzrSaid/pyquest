@@ -164,21 +164,23 @@ export const days: Day[] = [
           "It felt surreal. I’ve seen this park in pictures my whole life, but actually walking around it was a totally different experience. I was tired from the heat, but listening to the stories and seeing the history firsthand made it worth it.",
         photos: [
           {
-            src: "/photos/day01/groufie-rizal.jpg",
-            caption: "Our group photo in front of the Jose Rizal statue.",
-          },
-          {
-            src: "/photos/day01/park-roam.jpg",
-            caption: "Just walking around and taking in the sights at Luneta.",
-          },
-          {
-            src: "/photos/day01/execution-site.jpg",
-            caption:
-              "The spot where Jose Rizal was shot, just 100 meters from his statue.",
-          },
-          {
-            src: "/photos/day01/ice-cream.jpg",
-            caption: "Cooling down with some ice cream on a hot Manila day.",
+            src: [
+              "/photos/luneta/luneta_001.webp",
+              "/photos/luneta/luneta_002.webp",
+              "/photos/luneta/luneta_003.webp",
+              "/photos/luneta/luneta_004.webp",
+              "/photos/luneta/luneta_005.webp",
+              "/photos/luneta/luneta_006.webp",
+              "/photos/luneta/luneta_007.webp",
+              "/photos/luneta/luneta_010.webp",
+              "/photos/luneta/luneta_011.webp",
+              "/photos/luneta/luneta_012.webp",
+              "/photos/luneta/luneta_013.webp",
+              "/photos/luneta/luneta_019.webp",
+              "/photos/luneta/luneta_022.webp",
+              "/photos/luneta/luneta_023.webp",
+            ],
+            caption: "Group and solo shots from Rizal Park.",
           },
         ],
         realizations: [
@@ -216,17 +218,33 @@ export const days: Day[] = [
           "It was a mix of being amazed at how well the area is preserved and feeling kind of heavy/sad after learning about the war history in the dungeons. It really changes how you look at the city.",
         photos: [
           {
-            src: "/photos/day01/intramuros-groufie.jpg",
-            caption: "Group photo inside Intramuros and Fort Santiago.",
-          },
-          {
             src: [
-              "/photos/day01/fort-santiago-explore.jpg",
-              "/photos/day01/intramuros-streets.jpg",
-              "/photos/day01/fort-dungeons.jpg",
+              "/photos/intramuros/intramuros_001.webp",
+              "/photos/intramuros/intramuros_002.webp",
+              "/photos/intramuros/intramuros_003.webp",
+              "/photos/intramuros/intramuros_004.webp",
+              "/photos/intramuros/intramuros_006.webp",
+              "/photos/intramuros/intramuros_007.webp",
+              "/photos/intramuros/intramuros_008.webp",
+              "/photos/intramuros/intramuros_009.webp",
+              "/photos/intramuros/intramuros_010.webp",
+              "/photos/intramuros/intramuros_011.webp",
+              "/photos/intramuros/intramuros_013.webp",
+              "/photos/intramuros/intramuros_014.webp",
+              "/photos/intramuros/intramuros_015.webp",
+              "/photos/intramuros/intramuros_017.webp",
+              "/photos/intramuros/intramuros_018.webp",
+              "/photos/intramuros/intramuros_019.webp",
+              "/photos/intramuros/intramuros_020.webp",
+              "/photos/intramuros/intramuros_021.webp",
+              "/photos/intramuros/intramuros_022.webp",
+              "/photos/intramuros/intramuros_023.webp",
+              "/photos/intramuros/intramuros_024.webp",
+              "/photos/intramuros/intramuros_025.webp",
+              "/photos/intramuros/intramuros_026.webp",
             ],
             caption:
-              "Various photos captured inside the walls and Fort Santiago.",
+              "Various photos captured inside the walls of Intramuros and Fort Santiago.",
           },
         ],
         realizations: [
@@ -268,16 +286,17 @@ export const days: Day[] = [
           "It felt peaceful yet impressive. Even though there were a lot of tourists, the atmosphere inside was still very solemn because of the mass. It’s one of those places that feels much bigger once you actually step inside.",
         photos: [
           {
-            src: "/photos/day01/cathedral-portrait.jpg",
-            caption: "My photo in front of the Manila Cathedral.",
-          },
-          {
             src: [
-              "/photos/day01/cathedral-interior-1.jpg",
-              "/photos/day01/cathedral-interior-2.jpg",
-              "/photos/day01/cathedral-souvenirs.jpg",
+              "/photos/manila_cathedral/manila_cathedral_001.jpeg",
+              "/photos/manila_cathedral/manila_cathedral_002.webp",
+              "/photos/manila_cathedral/manila_cathedral_003.webp",
+              "/photos/manila_cathedral/manila_cathedral_004.webp",
+              "/photos/manila_cathedral/manila_cathedral_005.webp",
+              "/photos/manila_cathedral/manila_cathedral_006.webp",
+              "/photos/manila_cathedral/manila_cathedral_007.webp",
             ],
-            caption: "Shots taken inside the cathedral during our visit.",
+            caption:
+              "Shots taken inside and outside the cathedral during our visit.",
           },
         ],
         realizations: [
@@ -317,16 +336,7 @@ export const days: Day[] = [
           "After we left Intramuros, we hopped back on the bus to head toward the Mall of Asia. As we were driving down Roxas Boulevard, Kuya Jero got our attention to point out the CCP Complex. We didn't have enough time to stop or go inside, so it was just a quick drive-by, but it was still cool to see it in person. Even just from the bus window, the building is massive and clearly a major landmark.",
         feelings:
           "It was a bit of a rush since we didn't get to hop off, but it was cool to finally see such a well-known building. It makes the city tour feel like you're covering all the bases.",
-        photos: [
-          {
-            src: "/photos/day01/ccp-view.jpg",
-            caption: "A shot of the CCP Complex taken from the bus window.",
-          },
-          {
-            src: [],
-            caption: "Additional photos from the area.",
-          },
-        ],
+        photos: [],
         realizations: [
           "Not every tour stop needs to be a long walk-around; sometimes just getting a look at the landmark and learning its significance from the guide is enough to appreciate it.",
           "It’s impressive how much Manila packs into one stretch of the city—you go from old colonial history in Intramuros to modern arts and culture centers in just a few minutes.",
@@ -366,9 +376,11 @@ export const days: Day[] = [
         photos: [
           {
             src: [
-              "/photos/day01/moa-bay-entrance.jpg",
-              "/photos/day01/moa-interior-roam.jpg",
-              "/photos/day01/moa-shopping-haul.jpg",
+              "/photos/moa/IMG20260405173123.webp",
+              "/photos/moa/moa_002.webp",
+              "/photos/moa/moa_003.webp",
+              "/photos/moa/moa_006.webp",
+              "/photos/moa/moa_007.webp",
             ],
             caption:
               "Pictures capturing the massive scale of the mall and our shopping trip.",
