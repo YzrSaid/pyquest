@@ -33,7 +33,7 @@ export interface Day {
 export const days: Day[] = [
   {
     id: 0,
-    title: "Day 0",
+    title: "PRE",
     subtitle: "The Journey Begins",
     theme: "departure",
     intro:
@@ -57,13 +57,6 @@ export const days: Day[] = [
           "I woke up at 3:00 in the morning since our flight was scheduled for 6:00 AM. It was early, but I couldn't really sleep anyway — I was just too excited.\n\n My best friend Fhadia was also joining the tour, and since we live near each other, her father kindly let me ride with them to the airport. That early morning ride with them was such a relief and such a wholesome way to start the day.\n\nIn the days leading up to this, I had already packed my luggage about a week before the flight. I wanted to make sure everything was ready and nothing would be left behind. I also had my phone fixed beforehand — the last thing I wanted was a broken phone during the trip! On top of that, I made a list of all the people I planned to buy pasalubong for when I got back home.",
         feelings:
           "Honestly? I was a bundle of nerves but more than anything, I was beyond excited. This was my very first time going outside of Zamboanga City, and my very first time riding an airplane. Everything felt unreal.",
-        photos: [
-          {
-            src: "/photos/day00/luggage.jpg",
-            caption:
-              "Inside my luggage — I sent this photo to my friends to show how I packed everything and what I was bringing on the trip.",
-          },
-        ],
         realizations: [
           "I feel so blessed and grateful to my two sisters who paid for this tour and my plane ticket. Without them, this once-in-a-lifetime experience would not have been possible.",
           "I am deeply thankful to my mother, who guided me on what to do, what to expect, and what to bring for my flight. Her advice gave me so much confidence heading into this brand new experience.",
@@ -98,20 +91,32 @@ export const days: Day[] = [
           "I was super nervous. It was my first time flying, and the takeoff felt pretty intense. Praying before we left helped me settle down, and once we were cruising in the sky, I felt a lot better.",
         photos: [
           {
-            src: "/photos/day00/group-attendance.jpg",
-            caption:
-              "Group photo with friends for Sir Jason’s attendance protocol.",
+            src: [
+              "/photos/day00/day00_006.webp",
+              "/photos/day00/day00_007.webp",
+            ],
+            caption: "Group photo with friends for Sir Jason’s attendance.",
           },
           {
-            src: "/photos/day00/fhadia-family.jpg",
+            src: [
+              "/photos/day00/day00_009.webp",
+              "/photos/day00/day00_002.webp",
+            ],
             caption: "Arriving at the airport with Fhadia and her family.",
           },
           {
-            src: "/photos/day00/boarding.jpg",
+            src: [
+              "/photos/day00/day00_003.webp",
+              "/photos/day00/day00_008.webp",
+            ],
             caption: "Walking out to the tarmac to climb up to the plane.",
           },
           {
-            src: "/photos/day00/sky-view.jpg",
+            src: [
+              "/photos/day00/day00_005.webp",
+              "/photos/day00/day00_004.webp",
+              "/photos/day00/day00_001.webp",
+            ],
             caption: "My view from the window seat.",
           },
         ],
@@ -132,7 +137,7 @@ export const days: Day[] = [
   },
   {
     id: 1,
-    title: "Day 1",
+    title: "Day 0",
     subtitle: "Welcome to Historical Manila",
     theme: "history",
     intro:
@@ -388,7 +393,7 @@ export const days: Day[] = [
   },
   {
     id: 2,
-    title: "Day 2",
+    title: "Day 1",
     subtitle: "Into the Corporate World",
     theme: "corporate",
     intro:
@@ -420,21 +425,36 @@ export const days: Day[] = [
         photos: [
           {
             src: [
-              "/photos/day02/hytech-tour-1.jpg",
-              "/photos/day02/hytech-tour-2.jpg",
+              "/photos/day02_hytech/hytech_001.webp",
+              "/photos/day02_hytech/hytech_002.webp",
+              "/photos/day02_hytech/hytech_003.webp",
+              "/photos/day02_hytech/hytech_004.webp",
+              "/photos/day02_hytech/hytech_005.webp",
+              "/photos/day02_hytech/hytech_006.webp",
+              "/photos/day02_hytech/hytech_008.webp",
+              "/photos/day02_hytech/hytech_009.webp",
+              "/photos/day02_hytech/hytech_021.webp",
+              "/photos/day02_hytech/hytech_027.webp",
+              "/photos/day02_hytech/hytech_026.webp",
+              "/photos/day02_hytech/hytech_019.webp",
             ],
             caption:
               "Snapshots from our tour of the facility and various labs.",
           },
           {
-            src: "/photos/day02/smart-monitor-group.jpg",
+            src: [
+              "/photos/day02_hytech/hytech_016.webp",
+              "/photos/day02_hytech/hytech_017.webp",
+            ],
             caption:
-              "Our group photo using the smart monitor invented by their students.",
+              "Our group photo using the smart monitor they have in their conference room for virtual meetings and collaboration.",
           },
           {
             src: [
-              "/photos/day02/robotics-project-1.jpg",
-              "/photos/day02/robotics-project-2.jpg",
+              "/photos/day02_hytech/hytech_042.webp",
+              "/photos/day02_hytech/hytech_033.webp",
+              "/photos/day02_hytech/hytech_030.webp",
+              "/photos/day02_hytech/hytech_037.webp",
             ],
             caption:
               "Some of the cool robotics projects created by interns and students.",
@@ -481,15 +501,20 @@ export const days: Day[] = [
           "It felt professional and inspiring. Being in BGC and seeing how a global company operates firsthand made me feel more motivated to finish my degree and start my own career.",
         photos: [
           {
-            src: "/photos/day02/bgc-streetview.jpg",
+            src: [
+              "/photos/day02_opentext/opentext_003.webp",
+              "/photos/day02_opentext/opentext_004.webp",
+              "/photos/day02_opentext/opentext_007.webp",
+            ],
             caption:
               "Pictures taken while walking through BGC toward the office.",
           },
           {
             src: [
-              "/photos/day02/opentext-interior-1.jpg",
-              "/photos/day02/opentext-program-1.jpg",
-              "/photos/day02/opentext-group-post.jpg",
+              "/photos/day02_opentext/opentext_001.webp",
+              "/photos/day02_opentext/opentext_002.webp",
+              "/photos/day02_opentext/opentext_005.webp",
+              "/photos/day02_opentext/opentext_006.webp",
             ],
             caption:
               "Photos from inside the premises and during the welcome program.",
@@ -514,7 +539,7 @@ export const days: Day[] = [
   },
   {
     id: 3,
-    title: "Day 3",
+    title: "Day 2",
     subtitle: "Creativity Meets Communication",
     theme: "creative",
     intro:
@@ -546,14 +571,20 @@ export const days: Day[] = [
           "I was totally energized. It’s one thing to watch a show, but seeing the actual artists sweating the details on a single frame made me respect the craft so much more. It was inspiring to see Filipinos working on global icons like Batman and Disney characters.",
         photos: [
           {
-            src: "/photos/day03/top-peg-discussion.jpg",
-            caption: "Photos taken during the lecture and Q&A session.",
+            src: [
+              "/photos/day03_toppeg/toppeg_011.webp",
+              "/photos/day03_toppeg/toppeg_007.webp",
+              "/photos/day03_toppeg/toppeg_006.webp",
+              "/photos/day03_toppeg/toppeg_001.webp",
+            ],
+            caption:
+              "Photos taken during the lecture regarding animation and the studio's history.",
           },
           {
             src: [
-              "/photos/day03/animator-at-work.jpg",
-              "/photos/day03/trying-drawing-pad.jpg",
-              "/photos/day03/studio-space.jpg",
+              "/photos/day03_toppeg/toppeg_009.jpeg",
+              "/photos/day03_toppeg/toppeg_008.webp",
+              "/photos/day03_toppeg/toppeg_002.webp",
             ],
             caption:
               "Shots of the animators working and me trying out the Pen Display myself.",
@@ -600,8 +631,16 @@ export const days: Day[] = [
           "I was struck by how busy everything was. It was a very high-energy environment, and you could feel the pressure and the professionalism in the air. It’s definitely a different vibe from the creative studio we visited earlier in the day.",
         photos: [
           {
-            src: "/photos/day03/tp-group-photo.jpg",
-            caption: "Our group photo outside the Teleperformance premises.",
+            src: [
+              "/photos/day03_tp/tp_002.webp",
+              "/photos/day03_tp/tp_004.webp",
+              "/photos/day03_tp/tp_005.webp",
+            ],
+            caption: "Photos inside and outside the Teleperformance premises.",
+          },
+          {
+            src: "/photos/day03_tp/tp_001.webp",
+            caption: "The swags they gave us after the tour.",
           },
         ],
         realizations: [
@@ -623,7 +662,7 @@ export const days: Day[] = [
 
   {
     id: 4,
-    title: "Day 4",
+    title: "Day 3",
     subtitle: "Public Service Meets Global Business",
     theme: "government",
     intro:
@@ -656,17 +695,21 @@ export const days: Day[] = [
           "I was honestly stunned. It’s easy to complain about traffic, but seeing the actual tech and the sheer amount of work going on behind the scenes to keep the city moving changed my perspective. It made me realize how vital these government systems are to our daily safety.",
         photos: [
           {
-            src: "/photos/day04/mmda-group.jpg",
-            caption: "Our group photo inside the MMDA headquarters.",
+            src: [
+              "/photos/day04_mmda/mmda_004.webp",
+              "/photos/day04_mmda/mmda_006.webp",
+              "/photos/day04_mmda/mmda_007.webp",
+              "/photos/day04_mmda/mmda_008.webp",
+            ],
+            caption: "Some photos inside the MMDA headquarters.",
           },
           {
             src: [
-              "/photos/day04/command-center-wall.jpg",
-              "/photos/day04/monitoring-systems.jpg",
-              "/photos/day04/meeting-room-tech.jpg",
+              "/photos/day04_mmda/mmda_001.webp",
+              "/photos/day04_mmda/mmda_002.webp",
+              "/photos/day04_mmda/mmda_003.webp",
             ],
-            caption:
-              "The massive command center screen and their monitoring systems.",
+            caption: "Some photos outside the MMDA premises.",
           },
         ],
         realizations: [
@@ -711,12 +754,10 @@ export const days: Day[] = [
         photos: [
           {
             src: [
-              "/photos/day04/microsourcing-program-1.jpg",
-              "/photos/day04/microsourcing-leaders.jpg",
-              "/photos/day04/microsourcing-group-pic.jpg",
+              "/photos/day04_ microsourcing/microsourcing_001.webp",
+              "/photos/day04_ microsourcing/microsourcing_002.webp",
             ],
-            caption:
-              "Group photos during the program and our Q&A session with the company leaders.",
+            caption: "Some photos during the welcome program.",
           },
         ],
         realizations: [
@@ -739,7 +780,7 @@ export const days: Day[] = [
 
   {
     id: 5,
-    title: "Day 5",
+    title: "Day 4",
     subtitle: "Our Tagaytay Free Day",
     theme: "nature",
     intro:
@@ -771,17 +812,15 @@ export const days: Day[] = [
           "It was incredibly peaceful. After four days of rushing from office to office, being up in the mountains with fresh air felt like a massive reset button. I felt calm and totally energized by the view.",
         photos: [
           {
-            src: "/photos/day05/group-tagaytay.jpg",
-            caption: "Group photo at the summit of Tagaytay.",
-          },
-          {
             src: [
-              "/photos/day05/taal-view.jpg",
-              "/photos/day05/park-roaming.jpg",
-              "/photos/day05/souvenir-shopping.jpg",
+              "/photos/day05_tagaytay/tagaytay_006.webp",
+              "/photos/day05_tagaytay/tagaytay_007.webp",
+              "/photos/day05_tagaytay/tagaytay_008.webp",
+              "/photos/day05_tagaytay/tagaytay_017.webp",
+              "/photos/day05_tagaytay/tagaytay_016.webp",
+              "/photos/day05_tagaytay/tagaytay_001.webp",
             ],
-            caption:
-              "Capturing the panoramic views of the Taal Volcano and the park grounds.",
+            caption: "Group and solo photos at the summit of Tagaytay.",
           },
         ],
         realizations: [
@@ -825,17 +864,14 @@ export const days: Day[] = [
           "It was a fun, lighthearted end to the day. I felt a bit nervous on the Ferris wheel, but being with friends made it easy. It’s nice to have a place where you can just chill with bumper cars if you aren't an adrenaline junkie.",
         photos: [
           {
-            src: "/photos/day05/skyranch-group.jpg",
-            caption: "Our group photo at the entrance and around the park.",
-          },
-          {
             src: [
-              "/photos/day05/sky-eye-view.jpg",
-              "/photos/day05/bumper-cars.jpg",
-              "/photos/day05/park-activities.jpg",
+              "/photos/day05_tagaytay/tagaytay_005.webp",
+              "/photos/day05_tagaytay/tagaytay_002.webp",
+              "/photos/day05_tagaytay/tagaytay_010.webp",
+              "/photos/day05_tagaytay/tagaytay_011.webp",
+              "/photos/day05_tagaytay/tagaytay_009.webp",
             ],
-            caption:
-              "Shots from the Ferris wheel and the fun we had at the park.",
+            caption: "Shots of the fun we had at the park.",
           },
         ],
         realizations: [
@@ -857,7 +893,7 @@ export const days: Day[] = [
 
   {
     id: 6,
-    title: "Day 6",
+    title: "Day 5",
     subtitle: "Welcome to the City of Pines",
     theme: "mountain",
     intro:
@@ -891,14 +927,17 @@ export const days: Day[] = [
         photos: [
           {
             src: [
-              "/photos/day06/strawberry-farm-group.jpg",
-              "/photos/day06/strawberry-picking.jpg",
+              "/photos/day06 _strawberry_farm/strawberry_farm_002.webp",
+              "/photos/day06 _strawberry_farm/strawberry_farm_003.webp",
+              "/photos/day06 _strawberry_farm/strawberry_farm_004.webp",
+              "/photos/day06 _strawberry_farm/strawberry_farm_005.webp",
+              "/photos/day06 _strawberry_farm/strawberry_farm_006.webp",
+              "/photos/day06 _strawberry_farm/strawberry_farm_007.webp",
             ],
-            caption:
-              "Group photos and shots of us picking strawberries at the farm.",
+            caption: "Group and solo shots in Strawberry Farm.",
           },
           {
-            src: "/photos/day06/strawberry-taho.jpg",
+            src: "/photos/day06 _strawberry_farm/strawberry_farm_001.webp",
             caption:
               "My 50-peso strawberry taho—the perfect breakfast in the cold weather.",
           },
@@ -945,12 +984,22 @@ export const days: Day[] = [
         photos: [
           {
             src: [
-              "/photos/day06/bell-church-gate.jpg",
-              "/photos/day06/bell-church-statues.jpg",
-              "/photos/day06/bell-church-view.jpg",
+              "/photos/day06_bell_church/bell_church_002.webp",
+              "/photos/day06_bell_church/bell_church_003.webp",
+              "/photos/day06_bell_church/bell_church_004.webp",
+              "/photos/day06_bell_church/bell_church_005.webp",
+              "/photos/day06_bell_church/bell_church_007.webp",
+              "/photos/day06_bell_church/bell_church_008.webp",
+              "/photos/day06_bell_church/bell_church_010.webp",
+              "/photos/day06_bell_church/bell_church_012.webp",
+              "/photos/day06_bell_church/bell_church_013.webp",
+              "/photos/day06_bell_church/bell_church_014.webp",
+              "/photos/day06_bell_church/bell_church_015.webp",
+              "/photos/day06_bell_church/bell_church_016.webp",
+              "/photos/day06_bell_church/bell_church_017.webp",
             ],
             caption:
-              "Shots of the intricate architecture, the dragon statues, and our group at the Bell Church.",
+              "Shots of the intricate architecture, the dragon statues, and group and solo photos at the Bell Church.",
           },
         ],
         realizations: [
@@ -994,19 +1043,33 @@ export const days: Day[] = [
           "It was very humbling. There’s a certain weight to the place—you can feel the history and the discipline in the air. It wasn't just a tour; it felt like walking through a place that takes national service extremely seriously.",
         photos: [
           {
-            src: [
-              "/photos/day06/pma-entrance.jpg",
-              "/photos/day06/pma-park-statues.jpg",
-            ],
-            caption: "General photos of us walking around the PMA grounds.",
+            src: "/photos/day06_pma/pma_015.webp",
+            caption: "Our group photo in front of the iconic Melchor Hall.",
           },
           {
-            src: "/photos/day06/pma-wwii-planes.jpg",
+            src: [
+              "/photos/day06_pma/pma_001.webp",
+              "/photos/day06_pma/pma_002.webp",
+              "/photos/day06_pma/pma_003.webp",
+              "/photos/day06_pma/pma_004.webp",
+              "/photos/day06_pma/pma_017.webp",
+              "/photos/day06_pma/pma_018.webp",
+            ],
             caption: "The historical aircraft on display at the headquarters.",
           },
           {
-            src: "/photos/day06/pma-melchor-hall.jpg",
-            caption: "Our group photo in front of the iconic Melchor Hall.",
+            src: [
+              "/photos/day06_pma/pma_006.webp",
+              "/photos/day06_pma/pma_005.webp",
+              "/photos/day06_pma/pma_007.webp",
+              "/photos/day06_pma/pma_014.webp",
+              "/photos/day06_pma/pma_020.webp",
+              "/photos/day06_pma/pma_021.webp",
+              "/photos/day06_pma/pma_022.webp",
+              "/photos/day06_pma/pma_019.webp",
+              "/photos/day06_pma/pma_016.webp",
+            ],
+            caption: "General photos of us walking around the PMA grounds.",
           },
         ],
         realizations: [
@@ -1051,15 +1114,15 @@ export const days: Day[] = [
           "It felt grand and official. Even though it was a short visit, being in front of the 'Summer Palace' of the President makes you feel the weight of the city’s history. It’s a very 'Baguio' experience.",
         photos: [
           {
-            src: "/photos/day06/mansion-gate-groufie.jpg",
-            caption: "Our group photo in front of the iconic iron gates.",
-          },
-          {
             src: [
-              "/photos/day06/mansion-facade.jpg",
-              "/photos/day06/mansion-gardens.jpg",
+              "/photos/day06_the_mansion/mansion_001.webp",
+              "/photos/day06_the_mansion/mansion_002.webp",
+              "/photos/day06_the_mansion/mansion_003.webp",
+              "/photos/day06_the_mansion/mansion_004.webp",
+              "/photos/day06_the_mansion/mansion_005.webp",
+              "/photos/day06_the_mansion/mansion_006.webp",
             ],
-            caption: "The beautiful architecture and gardens of the residence.",
+            caption: "General photos in front of The Mansion.",
           },
         ],
         realizations: [
@@ -1103,15 +1166,16 @@ export const days: Day[] = [
         photos: [
           {
             src: [
-              "/photos/day06/mines-view-group.jpg",
-              "/photos/day06/mines-view-scenery.jpg",
+              "/photos/day06_mines_view/mines_01.webp",
+              "/photos/day06_mines_view/mines_04.jpeg",
+              "/photos/day06_mines_view/mines_05.jpeg",
             ],
-            caption: "Group photos and shots of the view at Mines View Park.",
+            caption: "General shots of the view at Mines View Park.",
           },
           {
             src: [
-              "/photos/day06/good-shepherd-store.jpg",
-              "/photos/day06/good-shepherd-jam.jpg",
+              "/photos/day06_mines_view/mines_03.jpeg",
+              "/photos/day06_mines_view/mines_02.webp",
             ],
             caption: "Visiting the Good Shepherd shop for their famous jams.",
           },
@@ -1158,12 +1222,11 @@ export const days: Day[] = [
         photos: [
           {
             src: [
-              "/photos/day06/night-market-ukay.jpg",
-              "/photos/day06/burnham-park-carts.jpg",
-              "/photos/day06/burnham-park-groufie.jpg",
+              "/photos/day06_burnham/burnham_01.webp",
+              "/photos/day06_burnham/burnham_02.webp",
             ],
             caption:
-              "Our group having fun at the Night Market and renting carts at Burnham Park.",
+              "Our group photo having fun renting carts at Burnham Park.",
           },
         ],
         realizations: [

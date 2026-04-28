@@ -32,7 +32,7 @@ export function GameHUD({ dayId, subtitle, onExit }: Props) {
             color: C_ACCENT,
           }}
         >
-          DAY {String(dayId).padStart(2, "0")}
+          {dayId === 0 ? "PRE-TOUR" : `DAY ${String(dayId - 1).padStart(2, "0")}`}
         </div>
         <div
           style={{

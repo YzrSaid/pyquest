@@ -120,7 +120,7 @@ export function OverworldMap({ onDaySelect, onScroll }: Props) {
                     letterSpacing: 1,
                   }}
                 >
-                  {String(stop.day).padStart(2, "0")}
+                  {stop.day === 0 ? "PRE" : String(stop.day - 1).padStart(2, "0")}
                 </span>
               </div>
 
